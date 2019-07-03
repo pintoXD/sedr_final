@@ -1,0 +1,82 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Wed Jul  3 15:48:09 2019
+| Host         : PINTO-MACHvW10 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file design_1_wrapper_control_sets_placed.rpt
+| Design       : design_1_wrapper
+| Device       : xc7a35t
+---------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    15 |
+| Unused register locations in slices containing registers |    20 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|      4 |            2 |
+|      5 |            2 |
+|      8 |            9 |
+|    16+ |            2 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             146 |           37 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |               9 |            2 |
+| Yes          | No                    | No                     |             140 |           29 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |               5 |            1 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+-------------------------------------------------------------+------------------------------------------------+------------------+----------------+
+|  Clock Signal  |                        Enable Signal                        |                Set/Reset Signal                | Slice Load Count | Bel Load Count |
++----------------+-------------------------------------------------------------+------------------------------------------------+------------------+----------------+
+|  clk_IBUF_BUFG |                                                             | design_1_i/present_CTRL_0/inst/saida           |                1 |              4 |
+|  clk_IBUF_BUFG | design_1_i/buf_in_0/inst/counter_up_inferred__0/i__n_0      |                                                |                1 |              4 |
+|  clk_IBUF_BUFG |                                                             | design_1_i/buf_in_0/inst/dv_out                |                1 |              5 |
+|  clk_IBUF_BUFG | design_1_i/present_CTRL_0/inst/p_0_in                       | design_1_i/present_CTRL_0/inst/cont[4]_i_1_n_0 |                1 |              5 |
+|  clk_IBUF_BUFG | design_1_i/buffer_64_to_8_0/inst/aux_output_data[7]_i_1_n_0 |                                                |                2 |              8 |
+|  clk_IBUF_BUFG | design_1_i/buf_in_0/inst/out[31]_i_1_n_0                    |                                                |                1 |              8 |
+|  clk_IBUF_BUFG | design_1_i/buf_in_0/inst/out[23]_i_1_n_0                    |                                                |                2 |              8 |
+|  clk_IBUF_BUFG | design_1_i/buf_in_0/inst/out[39]_i_1_n_0                    |                                                |                2 |              8 |
+|  clk_IBUF_BUFG | design_1_i/buf_in_0/inst/out[55]_i_1_n_0                    |                                                |                3 |              8 |
+|  clk_IBUF_BUFG | design_1_i/buf_in_0/inst/out[15]_i_1_n_0                    |                                                |                1 |              8 |
+|  clk_IBUF_BUFG | design_1_i/buf_in_0/inst/out[63]_i_1_n_0                    |                                                |                1 |              8 |
+|  clk_IBUF_BUFG | design_1_i/buf_in_0/inst/out[7]_i_1_n_0                     |                                                |                2 |              8 |
+|  clk_IBUF_BUFG | design_1_i/buf_in_0/inst/out[47]_i_1_n_0                    |                                                |                1 |              8 |
+|  clk_IBUF_BUFG | design_1_i/present_CTRL_0/inst/saida                        |                                                |               13 |             64 |
+|  clk_IBUF_BUFG |                                                             |                                                |               37 |            146 |
++----------------+-------------------------------------------------------------+------------------------------------------------+------------------+----------------+
+
+

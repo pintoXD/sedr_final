@@ -1,0 +1,36 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 non-TLS
+#  -string -flagsOSRD
+preplace port dv_in -pg 1 -y 10 -defaultsOSRD
+preplace port saida_flag -pg 1 -y -230 -defaultsOSRD
+preplace port clk -pg 1 -y -70 -defaultsOSRD
+preplace port reset_in -pg 1 -y -40 -defaultsOSRD
+preplace portBus con_out_666 -pg 1 -y -330 -defaultsOSRD
+preplace portBus saida_8_bit -pg 1 -y -370 -defaultsOSRD
+preplace portBus data_in -pg 1 -y 40 -defaultsOSRD
+preplace portBus count_buffer_saida -pg 1 -y -290 -defaultsOSRD
+preplace portBus data_out_666 -pg 1 -y 120 -defaultsOSRD
+preplace inst PRESENT_ENCRYPT_0 -pg 1 -lvl 2 -y -230 -defaultsOSRD
+preplace inst Key_reg -pg 1 -lvl 1 -y -290 -defaultsOSRD
+preplace inst buffer_64_to_8_0 -pg 1 -lvl 3 -y -30 -defaultsOSRD
+preplace inst buf_in_0 -pg 1 -lvl 1 -y 10 -defaultsOSRD
+preplace inst present_CTRL_0 -pg 1 -lvl 2 -y 150 -defaultsOSRD
+preplace netloc buf_in_0_data_out 1 1 3 630 80 N 80 1420
+preplace netloc PRESENT_ENCRYPT_0_odat 1 2 1 1070
+preplace netloc buffer_64_to_8_0_output_data 1 3 1 1410
+preplace netloc present_CTRL_0_saida 1 2 1 1070
+preplace netloc buffer_64_to_8_0_counter_out 1 3 1 1420
+preplace netloc buffer_64_to_8_0_out_trigger 1 3 1 1430
+preplace netloc buf_in_0_dv_out 1 1 1 620
+preplace netloc dv_in_1 1 0 1 30
+preplace netloc clk_1 1 0 3 30 -80 640 -10 N
+preplace netloc data_in_1 1 0 1 N
+preplace netloc reset_in_1 1 0 1 20
+preplace netloc present_CTRL_0_load 1 1 2 640 -320 1060
+preplace netloc buf_in_0_counter 1 1 3 610 -330 NJ -330 NJ
+preplace netloc Key_reg_dout 1 1 1 620
+levelinfo -pg 1 0 490 940 1280 1450 -top -390 -bot 320
+"
+}
+

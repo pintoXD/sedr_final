@@ -1,0 +1,200 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x7BD22C668C711352",
+      "device": "xc7a35tcpg236-1",
+      "name": "design_1",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2018.3",
+      "validated": "true"
+    },
+    "design_tree": {
+      "buf_in_0": "",
+      "buffer_64_to_8_0": "",
+      "present_CTRL_0": "",
+      "PRESENT_ENCRYPT_0": "",
+      "Key_reg": ""
+    },
+    "ports": {
+      "clk": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "ASSOCIATED_RESET": {
+            "value": "reset_in",
+            "value_src": "default"
+          },
+          "CLK_DOMAIN": {
+            "value": "design_1_clk",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.000",
+            "value_src": "default"
+          }
+        }
+      },
+      "reset_in": {
+        "direction": "I"
+      },
+      "dv_in": {
+        "direction": "I"
+      },
+      "data_in": {
+        "direction": "I",
+        "left": "7",
+        "right": "0"
+      },
+      "con_out_666": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "data_out_666": {
+        "direction": "O",
+        "left": "63",
+        "right": "0"
+      },
+      "saida_8_bit": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "saida_flag": {
+        "direction": "O"
+      },
+      "count_buffer_saida": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      }
+    },
+    "components": {
+      "buf_in_0": {
+        "vlnv": "xilinx.com:user:buf_in:1.0",
+        "xci_name": "design_1_buf_in_0_0"
+      },
+      "buffer_64_to_8_0": {
+        "vlnv": "xilinx.com:user:buffer_64_to_8:1.0",
+        "xci_name": "design_1_buffer_64_to_8_0_0"
+      },
+      "present_CTRL_0": {
+        "vlnv": "xilinx.com:user:present_CTRL:1.0",
+        "xci_name": "design_1_present_CTRL_0_0"
+      },
+      "PRESENT_ENCRYPT_0": {
+        "vlnv": "xilinx.com:user:PRESENT_ENCRYPT:1.0",
+        "xci_name": "design_1_PRESENT_ENCRYPT_0_0"
+      },
+      "Key_reg": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "design_1_xlconstant_0_0",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          },
+          "CONST_WIDTH": {
+            "value": "80"
+          }
+        }
+      }
+    },
+    "nets": {
+      "present_CTRL_0_load": {
+        "ports": [
+          "present_CTRL_0/load",
+          "PRESENT_ENCRYPT_0/load"
+        ]
+      },
+      "present_CTRL_0_saida": {
+        "ports": [
+          "present_CTRL_0/saida",
+          "buffer_64_to_8_0/reset_pulse"
+        ]
+      },
+      "buf_in_0_data_out": {
+        "ports": [
+          "buf_in_0/data_out",
+          "PRESENT_ENCRYPT_0/idat",
+          "data_out_666"
+        ]
+      },
+      "clk_1": {
+        "ports": [
+          "clk",
+          "buf_in_0/clk",
+          "present_CTRL_0/clk",
+          "PRESENT_ENCRYPT_0/clk",
+          "buffer_64_to_8_0/clk"
+        ]
+      },
+      "reset_in_1": {
+        "ports": [
+          "reset_in",
+          "buf_in_0/reset"
+        ]
+      },
+      "dv_in_1": {
+        "ports": [
+          "dv_in",
+          "buf_in_0/dv_in"
+        ]
+      },
+      "data_in_1": {
+        "ports": [
+          "data_in",
+          "buf_in_0/data_in"
+        ]
+      },
+      "Key_reg_dout": {
+        "ports": [
+          "Key_reg/dout",
+          "PRESENT_ENCRYPT_0/key"
+        ]
+      },
+      "buffer_64_to_8_0_out_trigger": {
+        "ports": [
+          "buffer_64_to_8_0/out_trigger",
+          "saida_flag"
+        ]
+      },
+      "buffer_64_to_8_0_output_data": {
+        "ports": [
+          "buffer_64_to_8_0/output_data",
+          "saida_8_bit"
+        ]
+      },
+      "buffer_64_to_8_0_counter_out": {
+        "ports": [
+          "buffer_64_to_8_0/counter_out",
+          "count_buffer_saida"
+        ]
+      },
+      "PRESENT_ENCRYPT_0_odat": {
+        "ports": [
+          "PRESENT_ENCRYPT_0/odat",
+          "buffer_64_to_8_0/in_data"
+        ]
+      },
+      "buf_in_0_dv_out": {
+        "ports": [
+          "buf_in_0/dv_out",
+          "present_CTRL_0/carrega"
+        ]
+      },
+      "buf_in_0_counter": {
+        "ports": [
+          "buf_in_0/counter",
+          "con_out_666"
+        ]
+      }
+    }
+  }
+}
