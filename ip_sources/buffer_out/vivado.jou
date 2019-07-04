@@ -1,0 +1,272 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Tue Jul  2 20:18:17 2019
+# Process ID: 1052
+# Current directory: C:/Users/calan/Google Drive/SEDR/buffer_out
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent1344 C:\Users\calan\Google Drive\SEDR\buffer_out\buffer_out.xpr
+# Log file: C:/Users/calan/Google Drive/SEDR/buffer_out/vivado.log
+# Journal file: C:/Users/calan/Google Drive/SEDR/buffer_out\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/calan/Google Drive/SEDR/buffer_out/buffer_out.xpr}
+update_compile_order -fileset sources_1
+launch_simulation
+source tb_buffer_out.tcl
+ipx::package_project -root_dir {c:/users/calan/google drive/sedr/buffer_out/buffer_out.srcs} -vendor xilinx.com -library user -taxonomy /UserIP
+set_property core_revision 2 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+set_property  ip_repo_paths  {{c:/users/calan/google drive/sedr/buffer_out/buffer_out.srcs}} [current_project]
+update_ip_catalog
+ipx::unload_core {c:/users/calan/google drive/sedr/buffer_out/buffer_out.srcs/component.xml}
+close_sim
+close_project
+create_project integration_test_1 {C:/Users/calan/Google Drive/SEDR/integration_test_1} -part xc7a35tcpg236-1
+set_property board_part digilentinc.com:basys3:part0:1.1 [current_project]
+set_property simulator_language Verilog [current_project]
+set_property  ip_repo_paths  C:/Users/calan/Documents/SEDR_projetos/meus/teste_CTRL [current_project]
+update_ip_catalog
+set_property  ip_repo_paths  {c:/Users/calan/Documents/SEDR_projetos/meus/teste_CTRL {C:/Users/calan/Google Drive/SEDR/buffer_out}} [current_project]
+update_ip_catalog
+create_bd_design "integration_no_1"
+update_compile_order -fileset sources_1
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:buffer_64_to_8:1.0 buffer_64_to_8_0
+endgroup
+set_property location {1.5 321 -5} [get_bd_cells buffer_64_to_8_0]
+update_ip_catalog -rebuild
+set_property  ip_repo_paths  {{c:/Users/calan/Google Drive/SEDR/buffer_out}} [current_project]
+update_ip_catalog
+set_property  ip_repo_paths  {{c:/Users/calan/Google Drive/SEDR/buffer_out} C:/Users/calan/Documents/SEDR_projetos/meus/teste_CTRL} [current_project]
+update_ip_catalog
+set_property  ip_repo_paths  {{c:/Users/calan/Google Drive/SEDR/buffer_out}} [current_project]
+update_ip_catalog
+set_property  ip_repo_paths  {{c:/Users/calan/Google Drive/SEDR/buffer_out} C:/Users/calan/Documents/SEDR_projetos/meus/present_CTRL C:/Users/calan/Documents/SEDR_projetos/meus/present} [current_project]
+update_ip_catalog
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:present_CTRL:1.0 present_CTRL_0
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:PRESENT_ENCRYPT:1.0 PRESENT_ENCRYPT_0
+endgroup
+set_property location {1 70 -128} [get_bd_cells PRESENT_ENCRYPT_0]
+set_property location {1 43 11} [get_bd_cells present_CTRL_0]
+set_property location {1.5 477 -86} [get_bd_cells buffer_64_to_8_0]
+set_property location {0.5 -38 11} [get_bd_cells present_CTRL_0]
+set_property location {3 491 -118} [get_bd_cells buffer_64_to_8_0]
+set_property location {3 494 -109} [get_bd_cells buffer_64_to_8_0]
+set_property location {2 178 18} [get_bd_cells present_CTRL_0]
+connect_bd_net [get_bd_pins present_CTRL_0/saida] [get_bd_pins buffer_64_to_8_0/reset_pulse]
+connect_bd_net [get_bd_pins PRESENT_ENCRYPT_0/odat] [get_bd_pins buffer_64_to_8_0/in_data]
+connect_bd_net [get_bd_pins present_CTRL_0/load] [get_bd_pins PRESENT_ENCRYPT_0/load]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0
+endgroup
+set_property location {1 -23 -162} [get_bd_cells xlconstant_0]
+set_property -dict [list CONFIG.CONST_WIDTH {80}] [get_bd_cells xlconstant_0]
+set_property -dict [list CONFIG.CONST_VAL {0}] [get_bd_cells xlconstant_0]
+set_property location {1 -44 -156} [get_bd_cells xlconstant_0]
+set_property name key_reg [get_bd_cells xlconstant_0]
+set_property location {1 -70 -137} [get_bd_cells key_reg]
+connect_bd_net [get_bd_pins key_reg/dout] [get_bd_pins PRESENT_ENCRYPT_0/key]
+startgroup
+create_bd_port -dir I -type clk clk
+set_property CONFIG.FREQ_HZ 100000000 [get_bd_ports clk]
+endgroup
+set_property location {-161 -82} [get_bd_ports clk]
+connect_bd_net [get_bd_ports clk] [get_bd_pins PRESENT_ENCRYPT_0/clk]
+connect_bd_net [get_bd_ports clk] [get_bd_pins present_CTRL_0/clk]
+connect_bd_net [get_bd_ports clk] [get_bd_pins buffer_64_to_8_0/clk]
+create_bd_port -dir I -from 63 -to 0 word_input
+set_property location {-65 -215} [get_bd_ports word_input]
+set_property location {-208 -224} [get_bd_ports word_input]
+connect_bd_net [get_bd_ports word_input] [get_bd_pins PRESENT_ENCRYPT_0/idat]
+create_bd_port -dir I load_input_word
+set_property location {-171 21} [get_bd_ports load_input_word]
+connect_bd_net [get_bd_ports load_input_word] [get_bd_pins present_CTRL_0/carrega]
+set_property location {-166 32} [get_bd_ports load_input_word]
+create_bd_port -dir O -from 7 -to 0 output_data
+set_property location {638 -172} [get_bd_ports output_data]
+set_property location {704 -132} [get_bd_ports output_data]
+connect_bd_net [get_bd_ports output_data] [get_bd_pins buffer_64_to_8_0/output_data]
+create_bd_port -dir O out_trigger
+set_property location {708 -108} [get_bd_ports out_trigger]
+connect_bd_net [get_bd_ports out_trigger] [get_bd_pins buffer_64_to_8_0/out_trigger]
+create_bd_port -dir O -from 3 -to 0 counter_out
+set_property location {717 -93} [get_bd_ports counter_out]
+connect_bd_net [get_bd_ports counter_out] [get_bd_pins buffer_64_to_8_0/counter_out]
+save_bd_design
+make_wrapper -files [get_files {{C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}}] -top
+add_files -norecurse {{C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/hdl/integration_no_1_wrapper.v}}
+file mkdir C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sim_1/new
+file mkdir C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sim_1/new
+file mkdir C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sim_1/new
+file mkdir C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sim_1/new
+file mkdir C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sim_1/new
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+file mkdir C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sim_1/new
+file mkdir {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sim_1/new}
+close [ open {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sim_1/new/test_integration.v} w ]
+add_files -fileset sim_1 {{C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sim_1/new/test_integration.v}}
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+generate_target Simulation [get_files {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}]
+export_ip_user_files -of_objects [get_files {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files {{C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}}] -directory {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.ip_user_files/sim_scripts} -ip_user_files_dir {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.ip_user_files} -ipstatic_source_dir {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.ip_user_files/ipstatic} -lib_map_path [list {modelsim=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/modelsim} {questa=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/questa} {riviera=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/riviera} {activehdl=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+launch_simulation
+update_ip_catalog -rebuild -scan_changes
+report_ip_status -name ip_status
+upgrade_ip [get_ips  {integration_no_1_PRESENT_ENCRYPT_0_0 integration_no_1_present_CTRL_0_0}] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips {integration_no_1_PRESENT_ENCRYPT_0_0 integration_no_1_present_CTRL_0_0}] -no_script -sync -force -quiet
+report_ip_status -name ip_status 
+generate_target Simulation [get_files {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}]
+export_ip_user_files -of_objects [get_files {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files {{C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}}] -directory {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.ip_user_files/sim_scripts} -ip_user_files_dir {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.ip_user_files} -ipstatic_source_dir {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.ip_user_files/ipstatic} -lib_map_path [list {modelsim=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/modelsim} {questa=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/questa} {riviera=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/riviera} {activehdl=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+launch_simulation
+source test_integration.tcl
+open_bd_design {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}
+report_ip_status -name ip_status 
+report_ip_status -name ip_status 
+update_ip_catalog -rebuild -scan_changes
+report_ip_status -name ip_status
+upgrade_ip -vlnv xilinx.com:user:buffer_64_to_8:1.0 [get_ips  integration_no_1_buffer_64_to_8_0_0] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips integration_no_1_buffer_64_to_8_0_0] -no_script -sync -force -quiet
+report_ip_status -name ip_status 
+close_sim
+generate_target Simulation [get_files {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}]
+export_ip_user_files -of_objects [get_files {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files {{C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}}] -directory {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.ip_user_files/sim_scripts} -ip_user_files_dir {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.ip_user_files} -ipstatic_source_dir {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.ip_user_files/ipstatic} -lib_map_path [list {modelsim=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/modelsim} {questa=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/questa} {riviera=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/riviera} {activehdl=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+source test_integration.tcl
+open_bd_design {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}
+create_bd_port -dir O -from 63 -to 0 out_present
+connect_bd_net [get_bd_ports out_present] [get_bd_pins PRESENT_ENCRYPT_0/odat]
+save_bd_design
+make_wrapper -files [get_files {{C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}}] -top
+close_sim
+generate_target Simulation [get_files {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}]
+export_ip_user_files -of_objects [get_files {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files {{C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}}] -directory {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.ip_user_files/sim_scripts} -ip_user_files_dir {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.ip_user_files} -ipstatic_source_dir {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.ip_user_files/ipstatic} -lib_map_path [list {modelsim=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/modelsim} {questa=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/questa} {riviera=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/riviera} {activehdl=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+launch_simulation
+export_ip_user_files -of_objects  [get_files {{C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/hdl/integration_no_1_wrapper.v}}] -no_script -reset -force -quiet
+remove_files  {{C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/hdl/integration_no_1_wrapper.v}}
+make_wrapper -files [get_files {{C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}}] -top
+add_files -norecurse {{C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/hdl/integration_no_1_wrapper.v}}
+launch_simulation
+open_bd_design {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}
+set_property location {707 -218} [get_bd_ports out_present]
+disconnect_bd_net /PRESENT_ENCRYPT_0_odat [get_bd_ports out_present]
+connect_bd_net [get_bd_ports out_present] [get_bd_pins PRESENT_ENCRYPT_0/odat]
+save_bd_design
+generate_target Simulation [get_files {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}]
+export_ip_user_files -of_objects [get_files {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files {{C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}}] -directory {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.ip_user_files/sim_scripts} -ip_user_files_dir {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.ip_user_files} -ipstatic_source_dir {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.ip_user_files/ipstatic} -lib_map_path [list {modelsim=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/modelsim} {questa=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/questa} {riviera=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/riviera} {activehdl=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+delete_bd_objs [get_bd_nets PRESENT_ENCRYPT_0_odat]
+connect_bd_net [get_bd_pins PRESENT_ENCRYPT_0/odat] [get_bd_pins buffer_64_to_8_0/in_data]
+connect_bd_net [get_bd_ports out_present] [get_bd_pins PRESENT_ENCRYPT_0/odat]
+save_bd_design
+make_wrapper -files [get_files {{C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}}] -top
+generate_target Simulation [get_files {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}]
+export_ip_user_files -of_objects [get_files {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files {{C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.srcs/sources_1/bd/integration_no_1/integration_no_1.bd}}] -directory {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.ip_user_files/sim_scripts} -ip_user_files_dir {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.ip_user_files} -ipstatic_source_dir {C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.ip_user_files/ipstatic} -lib_map_path [list {modelsim=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/modelsim} {questa=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/questa} {riviera=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/riviera} {activehdl=C:/Users/calan/Google Drive/SEDR/integration_test_1/integration_test_1.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+close_project
+create_project integration_test_2 {C:/Users/calan/Google Drive/SEDR/integration_test_2} -part xc7a35tcpg236-1
+set_property board_part digilentinc.com:basys3:part0:1.1 [current_project]
+set_property simulator_language Verilog [current_project]
+set_property  ip_repo_paths  {C:/Users/calan/Documents/SEDR_projetos/meus/present_CTRL C:/Users/calan/Documents/SEDR_projetos/meus/present {C:/Users/calan/Google Drive/SEDR/buffer_out}} [current_project]
+update_ip_catalog
+create_bd_design "design_1"
+update_compile_order -fileset sources_1
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:PRESENT_ENCRYPT:1.0 PRESENT_ENCRYPT_0
+create_bd_cell -type ip -vlnv xilinx.com:user:present_CTRL:1.0 present_CTRL_0
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:buffer_64_to_8:1.0 buffer_64_to_8_0
+endgroup
+set_property location {2 274 -167} [get_bd_cells PRESENT_ENCRYPT_0]
+set_property location {2.5 763 -36} [get_bd_cells buffer_64_to_8_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0
+endgroup
+set_property location {1.5 160 -198} [get_bd_cells xlconstant_0]
+set_property -dict [list CONFIG.CONST_WIDTH {80} CONFIG.CONST_VAL {0}] [get_bd_cells xlconstant_0]
+set_property location {1 158 -178} [get_bd_cells xlconstant_0]
+connect_bd_net [get_bd_pins xlconstant_0/dout] [get_bd_pins PRESENT_ENCRYPT_0/key]
+set_property name key_reg [get_bd_cells xlconstant_0]
+connect_bd_net [get_bd_pins present_CTRL_0/load] [get_bd_pins PRESENT_ENCRYPT_0/load]
+connect_bd_net [get_bd_pins PRESENT_ENCRYPT_0/odat] [get_bd_pins buffer_64_to_8_0/in_data]
+connect_bd_net [get_bd_pins buffer_64_to_8_0/reset_pulse] [get_bd_pins present_CTRL_0/saida]
+startgroup
+create_bd_port -dir I -type clk clk
+set_property CONFIG.FREQ_HZ 100000000 [get_bd_ports clk]
+endgroup
+set_property location {67 -68} [get_bd_ports clk]
+set_property location {-72 -50} [get_bd_ports clk]
+connect_bd_net [get_bd_ports clk] [get_bd_pins PRESENT_ENCRYPT_0/clk]
+connect_bd_net [get_bd_ports clk] [get_bd_pins present_CTRL_0/clk]
+connect_bd_net [get_bd_ports clk] [get_bd_pins buffer_64_to_8_0/clk]
+create_bd_port -dir O -from 63 -to 0 out_present
+connect_bd_net [get_bd_ports out_present] [get_bd_pins PRESENT_ENCRYPT_0/odat]
+create_bd_port -dir O -from 7 -to 0 out_data
+set_property location {918 -73} [get_bd_ports out_data]
+connect_bd_net [get_bd_ports out_data] [get_bd_pins buffer_64_to_8_0/output_data]
+set_property location {927 -53} [get_bd_ports out_data]
+set_property location {971 -64} [get_bd_ports out_data]
+set_property location {1013 -64} [get_bd_ports out_data]
+create_bd_port -dir O out_trigger
+set_property location {954 -47} [get_bd_ports out_trigger]
+connect_bd_net [get_bd_ports out_trigger] [get_bd_pins buffer_64_to_8_0/out_trigger]
+create_bd_port -dir O -from 3 -to 0 counter_out
+set_property location {930 -35} [get_bd_ports counter_out]
+startgroup
+connect_bd_net [get_bd_ports counter_out] [get_bd_pins buffer_64_to_8_0/counter_out]
+endgroup
+create_bd_port -dir I carrega
+set_property location {-92 33} [get_bd_ports carrega]
+connect_bd_net [get_bd_ports carrega] [get_bd_pins present_CTRL_0/carrega]
+create_bd_port -dir I -from 63 -to 0 input_word
+connect_bd_net [get_bd_ports input_word] [get_bd_pins PRESENT_ENCRYPT_0/idat]
+save_bd_design
+make_wrapper -files [get_files {{C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.srcs/sources_1/bd/design_1/design_1.bd}}] -top
+add_files -norecurse {{C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v}}
+file mkdir C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.srcs/sim_1/new
+file mkdir C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.srcs/sim_1/new
+file mkdir C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.srcs/sim_1/new
+file mkdir C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.srcs/sim_1/new
+file mkdir C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.srcs/sim_1/new
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+file mkdir C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.srcs/sim_1/new
+file mkdir {C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.srcs/sim_1/new}
+close [ open {C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.srcs/sim_1/new/teste_tb.v} w ]
+add_files -fileset sim_1 {{C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.srcs/sim_1/new/teste_tb.v}}
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+generate_target Simulation [get_files {C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.srcs/sources_1/bd/design_1/design_1.bd}]
+export_ip_user_files -of_objects [get_files {C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.srcs/sources_1/bd/design_1/design_1.bd}] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files {{C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.srcs/sources_1/bd/design_1/design_1.bd}}] -directory {C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.ip_user_files/sim_scripts} -ip_user_files_dir {C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.ip_user_files} -ipstatic_source_dir {C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.ip_user_files/ipstatic} -lib_map_path [list {modelsim=C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.cache/compile_simlib/modelsim} {questa=C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.cache/compile_simlib/questa} {riviera=C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.cache/compile_simlib/riviera} {activehdl=C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+source teste_tb.tcl
+open_bd_design {C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.srcs/sources_1/bd/design_1/design_1.bd}
+delete_bd_objs [get_bd_ports out_present]
+save_bd_design
+make_wrapper -files [get_files {{C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.srcs/sources_1/bd/design_1/design_1.bd}}] -top
+close_sim
+generate_target Simulation [get_files {C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.srcs/sources_1/bd/design_1/design_1.bd}]
+export_ip_user_files -of_objects [get_files {C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.srcs/sources_1/bd/design_1/design_1.bd}] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files {{C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.srcs/sources_1/bd/design_1/design_1.bd}}] -directory {C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.ip_user_files/sim_scripts} -ip_user_files_dir {C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.ip_user_files} -ipstatic_source_dir {C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.ip_user_files/ipstatic} -lib_map_path [list {modelsim=C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.cache/compile_simlib/modelsim} {questa=C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.cache/compile_simlib/questa} {riviera=C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.cache/compile_simlib/riviera} {activehdl=C:/Users/calan/Google Drive/SEDR/integration_test_2/integration_test_2.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+source teste_tb.tcl
+close_sim
+launch_simulation
+source teste_tb.tcl
+relaunch_sim
+close_sim

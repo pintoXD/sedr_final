@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../buffer_out.srcs/sources_1/new/buffer_64_to_8.v" \
+"../../../../buffer_out.srcs/sim_1/new/tb_buffer_out.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

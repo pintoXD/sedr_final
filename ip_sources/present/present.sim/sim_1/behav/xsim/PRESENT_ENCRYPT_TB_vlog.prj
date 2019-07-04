@@ -1,0 +1,12 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../present.srcs/sources_1/imports/present/present_encrypt.v" \
+"../../../../present.srcs/sources_1/imports/present/present_encrypt_pbox.v" \
+"../../../../present.srcs/sources_1/imports/present/present_encrypt_sbox.v" \
+"../../../../present.srcs/sim_1/imports/present/present_encrypt_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

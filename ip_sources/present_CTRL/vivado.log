@@ -1,0 +1,65 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Tue Jul  2 21:50:56 2019
+# Process ID: 7868
+# Current directory: C:/Users/calan/Documents/SEDR_projetos/meus/present_CTRL
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent224 C:\Users\calan\Documents\SEDR_projetos\meus\present_CTRL\present_CTRL.xpr
+# Log file: C:/Users/calan/Documents/SEDR_projetos/meus/present_CTRL/vivado.log
+# Journal file: C:/Users/calan/Documents/SEDR_projetos/meus/present_CTRL\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/calan/Documents/SEDR_projetos/meus/present_CTRL/present_CTRL.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Users/Daniel/Vivado/Projetos/present_CTRL' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/calan/Documents/SEDR_projetos/meus/present_CTRL/present_CTRL.srcs'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:32 ; elapsed = 00:00:23 . Memory (MB): peak = 677.703 ; gain = 83.297
+update_compile_order -fileset sources_1
+ipx::open_ipxact_file {c:\users\calan\documents\sedr_projetos\meus\present_ctrl\present_ctrl.srcs\component.xml}
+WARNING: [IP_Flow 19-5226] Project source file 'c:/Users/calan/Documents/SEDR_projetos/meus/present_CTRL/present_CTRL.srcs/component.xml' ignored by IP packager.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagesynthesis (Synthesis)': File 'c:/users/Users/Daniel/Vivado/Projetos/present_CTRL/present_CTRL.srcs/sources_1/imports/new/present_CTRL.v' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-4308] Project file 'c:/Users/calan/Documents/SEDR_projetos/meus/present_CTRL/present_CTRL.srcs/sources_1/imports/new/present_CTRL.v' is not found in the component files. It will be added automatically when merging sources and repackaging. Please remove the file from the source project if this is not desired.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)': File 'c:/users/Users/Daniel/Vivado/Projetos/present_CTRL/present_CTRL.srcs/sources_1/imports/new/present_CTRL.v' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-4308] Project file 'c:/Users/calan/Documents/SEDR_projetos/meus/present_CTRL/present_CTRL.srcs/sources_1/imports/new/present_CTRL.v' is not found in the component files. It will be added automatically when merging sources and repackaging. Please remove the file from the source project if this is not desired.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_testbench (Test Bench)': File 'c:/users/Users/Daniel/Vivado/Projetos/present_CTRL/present_CTRL.srcs/sim_1/new/CTRL_TB.v' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-4308] Project file 'c:/Users/calan/Documents/SEDR_projetos/meus/present_CTRL/present_CTRL.srcs/sim_1/new/CTRL_TB.v' is not found in the component files. It will be added automatically when merging sources and repackaging. Please remove the file from the source project if this is not desired.
+ipx::open_ipxact_file: Time (s): cpu = 00:00:09 ; elapsed = 00:00:05 . Memory (MB): peak = 710.523 ; gain = 16.105
+ipx::unload_core c:/users/calan/documents/sedr_projetos/meus/present_ctrl/present_ctrl.srcs/component.xml
+ipx::package_project -root_dir c:/users/calan/documents/sedr_projetos/meus/present_ctrl/present_ctrl.srcs -vendor xilinx.com -library user -taxonomy /UserIP -force
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-3153] Bus Interface 'clk': ASSOCIATED_BUSIF bus parameter is missing.
+INFO: [IP_Flow 19-2181] Payment Required is not set for this core.
+INFO: [IP_Flow 19-2187] The Product Guide file is missing.
+set_property core_revision 2 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path c:/Users/calan/Documents/SEDR_projetos/meus/present_CTRL/present_CTRL.srcs
+INFO: [IP_Flow 19-725] Reloaded user IP repository 'c:/Users/calan/Documents/SEDR_projetos/meus/present_CTRL/present_CTRL.srcs'
+close_project
+open_project C:/Users/calan/Documents/SEDR_projetos/meus/present/present.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Users/Daniel/Vivado/Projetos/present' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/calan/Documents/SEDR_projetos/meus/present/present.srcs'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 816.320 ; gain = 12.648
+update_compile_order -fileset sources_1
+ipx::package_project -root_dir c:/users/calan/documents/sedr_projetos/meus/present/present.srcs -vendor xilinx.com -library user -taxonomy /UserIP -force
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-3153] Bus Interface 'clk': ASSOCIATED_BUSIF bus parameter is missing.
+INFO: [IP_Flow 19-2181] Payment Required is not set for this core.
+INFO: [IP_Flow 19-2187] The Product Guide file is missing.
+set_property core_revision 2 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path c:/Users/calan/Documents/SEDR_projetos/meus/present/present.srcs
+INFO: [IP_Flow 19-725] Reloaded user IP repository 'c:/Users/calan/Documents/SEDR_projetos/meus/present/present.srcs'
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Jul  2 22:05:03 2019...

@@ -1,0 +1,28 @@
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+CONT:   x
+Dentro:   x
+Dentro
+CONT:   0
+Dentro:   0
+CONT:   1
+CONT:   2
+CONT:   3
+CONT:   4
+CONT:   5
+CONT:   6
+CONT:   7
+CONT:   8
+CONT:  15
+CONT:  15
+CONT:  15
+CONT:  15
+CONT:  15
+CONT:  15
+CONT:  15
+CONT:  15
+CONT:  15
+CONT:  15
+CONT:  15
+CONT:  15
+$finish called at time : 220 ns : File "C:/Users/calan/Google Drive/SEDR/buffer_out/buffer_out.srcs/sim_1/new/tb_buffer_out.v" Line 70
